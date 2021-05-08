@@ -3,6 +3,8 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
+import Accordion from "react-bootstrap/Accordion";
+import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import indiaFlag from "./assets/india-flag.png";
@@ -97,7 +99,6 @@ function App() {
             Shivam Singh
           </a>
         </Navbar.Brand>
-        
       </Navbar>
       <div className="loginContainer">
         <div class="banner-box">
@@ -187,6 +188,112 @@ function App() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="faq">
+        <h2>Frequently asked questions</h2>
+        <Accordion defaultActiveKey="0">
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="0">
+              How does this work?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <p>
+                  Once you register with your location information. We would
+                  periodically check for slot availability (typically every 5
+                  mins).
+                </p>
+                <p>
+                  {" "}
+                  When we see a slot opening up, we would immediately send
+                  across an email to your email-id. Emails would be sent every 3
+                  hours till the time you don't notify us that you have booked
+                  your slot.
+                </p>
+                <p>
+                  {" "}
+                  You can notify us by clicking on "Have booked my slot" button
+                  in the email.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="1">
+              Who runs this site?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="1">
+              <Card.Body>
+                <p>
+                  <a href="https://www.linkedin.com/in/sks71093/">
+                    Shivam Singh
+                  </a>
+                  , a software developer from bengaluru has developed and
+                  manages this site.
+                </p>
+                <p>
+                  {" "}
+                  I tried getting vaccination slots for myself and whenever i
+                  tried i couldn't book one. That is where i felt i could write
+                  a small program to get notified when a vaccination slot opens
+                  up.{" "}
+                </p>
+                <p>
+                  This page is an attempt to help people like me to avoid
+                  frustrations and save time trying to book a slot for
+                  themselves.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="2">
+              How would you utilize my email?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="2">
+              <Card.Body>
+                <p>
+                  Your email is stored for the sole purpose to notify you
+                  whenever a vaccination slot opens up. Once you book your
+                  vaccination slot, simply click on "Unsubscribe" button in the
+                  email and your email-id would be removed from our database.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="2">
+              How do i stop new slot open emails?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="2">
+              <Card.Body>
+                <p>
+                  In the email you received there is a button "Have booked my
+                  slot" or "Unsubscribe" once you click on any of this button
+                  you would stop receiving email from us.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="2">
+              What can i do to help you?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="2">
+              <Card.Body>
+                <p>
+                  Simply share this site and message to as many people as
+                  possible. So they can get vaccinated as soon as possible and
+                  we can come out of this pandemic and get our lives back on
+                  track.
+                </p>
+                <p>
+                  If you are willing to help me coverup the hosting & mail charges <a href="#">click here</a>
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
       </div>
     </div>
   );
