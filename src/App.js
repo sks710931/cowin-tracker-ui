@@ -55,7 +55,7 @@ function App() {
 
   const onSubmit = () => {
     axios
-      .post("https://localhost:44384/Register/user-registration", {
+      .post("https://covid-vaccination-tracker.azurewebsites.net/Register/user-registration", {
         id: 0,
         name: name,
         email: email,
