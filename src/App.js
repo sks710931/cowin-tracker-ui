@@ -10,7 +10,7 @@ import axios from "axios";
 import indiaFlag from "./assets/india-flag.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import validator from 'validator';
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,7 +20,8 @@ function App() {
   const [selectedDistrict, setSelectedDistricts] = useState(0);
   const [isDistrictEnabled, setIsDistrictEnabled] = useState(false);
   const [isBtnDisabled, setBtnDisabled] = useState(true);
-
+  const [isNameValid, setIsNameValid] = useState();
+  const [isEmailValid, setIsEmailValid] = useState();
   useEffect(() => {
     axios
       .get("https://cdn-api.co-vin.in/api/v2/admin/location/states")
@@ -34,11 +35,49 @@ function App() {
 
   const nameChange = (e) => {
     setName(e.target.value);
+    if(validator.isAlpha(e.target.value)){
+      setIsNameValid(true)
+      setBtnDisabled(false);
+    }
+    else{
+      setIsNameValid(false)
+    }
   };
 
   const emailChange = (e) => {
     setEmail(e.target.value);
+    if(validator.isEmail(e.target.value)){
+      setIsEmailValid(true);
+      setBtnDisabled(false);
+    }else{
+      setIsEmailValid(false);
+    }
   };
+
+  const validateEmail = () => {
+    if(validator.isEmail(email)){
+      setIsEmailValid(true);
+      setBtnDisabled(false);
+      return true;
+    }else{
+      setIsEmailValid(false);
+      setBtnDisabled(true);
+      return false;
+    }
+  }
+
+  const validateName = () => {
+    if(validator.isAlpha(name)){
+      setIsNameValid(true)
+      setBtnDisabled(false);
+      return true;
+    }
+    else{
+      setIsNameValid(false)
+      setBtnDisabled(true);
+      return false;
+    }
+  }
   const stateSelectionChange = (e) => {
     setSelectedState(e.target.value);
     getDistricts(e.target.value);
@@ -67,7 +106,8 @@ function App() {
   };
 
   const onSubmit = () => {
-    setBtnDisabled(true);
+    if(validateEmail() && validateName()){
+      setBtnDisabled(true);
     axios
       .post("https://covid-vaccination-tracker.azurewebsites.net/Register/user-registration", {
         id: 0,
@@ -106,6 +146,7 @@ function App() {
         );
         setBtnDisabled(false);
       });
+    }
   };
   const notify = () => toast("Wow so easy!");
   return (
@@ -136,7 +177,7 @@ function App() {
             <h3 className="heading">Get Notified</h3>
             <div>
               <Form.Control
-                className="name"
+                className={`name ${isNameValid === false ? 'name-invalid': ''}`}
                 type="text"
                 value={name}
                 required
@@ -144,10 +185,11 @@ function App() {
                 autoComplete="no"
                 onChange={nameChange}
               />
+              { (isNameValid===false)? <p className="name-invalid-p">Please enter a valid name.</p> : ''}
             </div>
             <div>
               <Form.Control
-                className="name"
+                className={`name ${isEmailValid === false ? 'name-invalid': ''}`}
                 type="email"
                 value={email}
                 autoComplete="no"
@@ -155,6 +197,7 @@ function App() {
                 placeholder="Your Email"
                 onChange={emailChange}
               />
+              { (isEmailValid===false)? <p className="name-invalid-p">Please enter a valid email.</p> : ''}
             </div>
             <Form.Group>
               <Form.Control

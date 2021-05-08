@@ -178,3 +178,19 @@
 .accordion .card-body{
   background-color: #f5f5f5;
 }
+
+.name-invalid{
+  color: red;
+  border: 1px solid red;
+  margin-bottom: 0px;
+}
+.name-invalid:focus{
+  color: red;
+  border: 1px solid red;
+  box-shadow: 0 0 0 0.1em red;
+}
+.name-invalid-p{
+  margin-bottom: 20px;
+  color: red;
+  font-size: 13px;
+}
