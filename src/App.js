@@ -333,10 +333,10 @@ function App() {
             </Accordion.Collapse>
           </Card>
           <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="2">
+            <Accordion.Toggle as={Card.Header} eventKey="3">
               How do i stop new slot open emails?
             </Accordion.Toggle>
-            <Accordion.Collapse eventKey="2">
+            <Accordion.Collapse eventKey="3">
               <Card.Body>
                 <p>
                   In the email you received there is a button "Have booked my
@@ -347,10 +347,10 @@ function App() {
             </Accordion.Collapse>
           </Card>
           <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="2">
+            <Accordion.Toggle as={Card.Header} eventKey="4">
               What can i do to help you?
             </Accordion.Toggle>
-            <Accordion.Collapse eventKey="2">
+            <Accordion.Collapse eventKey="4">
               <Card.Body>
                 <p>
                   Simply share this site and message to as many people as
