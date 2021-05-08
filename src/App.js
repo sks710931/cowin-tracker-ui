@@ -8,6 +8,9 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import indiaFlag from "./assets/india-flag.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,6 +19,7 @@ function App() {
   const [districts, setDistricts] = useState();
   const [selectedDistrict, setSelectedDistricts] = useState(0);
   const [isDistrictEnabled, setIsDistrictEnabled] = useState(false);
+  const [isBtnDisabled, setBtnDisabled] = useState(true);
 
   useEffect(() => {
     axios
@@ -38,9 +42,15 @@ function App() {
   const stateSelectionChange = (e) => {
     setSelectedState(e.target.value);
     getDistricts(e.target.value);
+    setBtnDisabled(true);
   };
   const districtSelectionChange = (e) => {
     setSelectedDistricts(e.target.value);
+    if (parseInt(e.target.value) === 0) {
+      setBtnDisabled(true);
+    } else {
+      setBtnDisabled(false);
+    }
   };
 
   const getDistricts = (stateId) => {
@@ -57,34 +67,47 @@ function App() {
   };
 
   const onSubmit = () => {
+    setBtnDisabled(true);
     axios
-      .post(
-        "https://covid-vaccination-tracker.azurewebsites.net/Register/user-registration",
-        {
-          id: 0,
-          name: name,
-          email: email,
-          districtId: selectedDistrict,
-          alertFrequency: 1,
-        }
-      )
+      .post("https://covid-vaccination-tracker.azurewebsites.net/Register/user-registration", {
+        id: 0,
+        name: name,
+        email: email,
+        districtId: selectedDistrict,
+        alertFrequency: 1,
+      })
       .then((res) => {
         if (res.status === 200) {
-          alert(
-            "Registration Successful \\n You Will receive emails based on notification frequency selected"
+          toast(
+            "Registration Successful! You will receive emails on provided email.",
+            {
+              type: "success",
+            }
           );
+          setBtnDisabled(true);
+          setName("");
+          setEmail("");
+          setIsDistrictEnabled(false);
+          setSelectedDistricts(0);
+          setSelectedState(0);
         } else {
-          alert(
-            "Error Occured! Please Inform Us by email on shivamsingh071093@gmail.com \\n we will resolve it soon"
-          );
+          toast(res.data.message, {
+            type: "warning",
+          });
+          setBtnDisabled(false);
         }
       })
       .catch((err) => {
-        alert(
-          "Error Occured! Please Inform Us by email on shivamsingh071093@gmail.com \\n we will resolve it soon"
+        toast(
+          "Error Occured! Please Inform Us by email on shivamsingh071093@gmail.com. we will resolve it soon",
+          {
+            type: "error",
+          }
         );
+        setBtnDisabled(false);
       });
   };
+  const notify = () => toast("Wow so easy!");
   return (
     <div className="App">
       <Navbar fixed="top" bg="dark" variant="dark">
@@ -179,7 +202,12 @@ function App() {
               </Form.Control>
             </Form.Group>
 
-            <Button onClick={onSubmit} variant="primary" type="submit">
+            <Button
+              disabled={isBtnDisabled}
+              onClick={onSubmit}
+              variant="primary"
+              type="submit"
+            >
               Submit
             </Button>
             <div className="meta">
@@ -288,13 +316,16 @@ function App() {
                   track.
                 </p>
                 <p>
-                  If you are willing to help me coverup the hosting & mail charges <a href="#">click here</a>
+                  If you are willing to help me coverup the hosting & mail
+                  charges <a href="#">click here</a>
                 </p>
               </Card.Body>
             </Accordion.Collapse>
           </Card>
         </Accordion>
       </div>
+      <button onClick={notify}>Notify!</button>
+      <ToastContainer />
     </div>
   );
 }
