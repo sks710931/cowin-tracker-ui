@@ -1,5 +1,8 @@
 .App {
   height: 100%;
+}
+body{
+  
   background-color: beige;
 }
 
@@ -79,12 +82,14 @@
 
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 1231px) {
+  
   .loginContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
+    margin-top: 50px;
   }
   .banner-box {
     display: flex;
@@ -105,5 +110,23 @@
   }
   .get-vaccinated h1{
     font-size: 25px;
+  }
+}
+
+.bg-dark{
+  background-color: #3949ab !important;
+}
+
+.a-name-link{
+  color: white;
+}
+.a-name-link:hover{
+  color: red;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 500px){
+  .navbar-brand{
+    font-size: 16px;
   }
 }

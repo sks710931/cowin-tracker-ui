@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-no-target-blank */
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
+import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import indiaFlag from "./assets/india-flag.png";
@@ -83,6 +85,20 @@ function App() {
   };
   return (
     <div className="App">
+      <Navbar fixed="top" bg="dark" variant="dark">
+        <Navbar.Brand href="#home">
+          Covid-19 Vaccination Slot Tracker by -
+          <a
+            className="a-name-link"
+            href="https://www.linkedin.com/in/sks71093/"
+            target="_blank"
+          >
+            {" "}
+            Shivam Singh
+          </a>
+        </Navbar.Brand>
+        
+      </Navbar>
       <div className="loginContainer">
         <div class="banner-box">
           <div className="get-vaccinated">
