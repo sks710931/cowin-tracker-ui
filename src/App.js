@@ -166,10 +166,9 @@ function App() {
       <div className="loginContainer">
         <div class="banner-box">
           <div className="get-vaccinated">
-            <img src={indiaFlag} alt="" />
-            <h1>Get yourself vaccinated</h1>
+            
           </div>
-          <h3>Receive an email when a vaccination slot opens up</h3>
+          
         </div>
         <div className="register-box">
           <div class="login-box">

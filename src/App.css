@@ -11,6 +11,11 @@
   align-items: center;
   height: 100%;
   background-color: #ede7f6;
+  
+  background-image: url('./assets/largest-vaccine-banner.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
 }
 .banner-box {
   width: 100%;
@@ -125,14 +130,17 @@
 }
 
 .bg-dark{
-  background-color: #3f51b5 !important;
+  background-color: #f2b635 !important;
 }
 
 .a-name-link{
-  color: white;
+  color: #062367;
+}
+.navbar-brand{
+  color: #062367 !important;
 }
 .a-name-link:hover{
-  color: red;
+  color: white;
   text-decoration: none;
 }
 
