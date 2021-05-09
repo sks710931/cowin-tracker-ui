@@ -9,13 +9,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 85%;
-  background-color: white;
-  
-  background-image: url('./assets/largest-vaccine-banner.jpg');
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: contain;
+  height: 100%;
+  background-color: #ede7f6;
 }
 .banner-box {
   width: 100%;
@@ -36,8 +31,7 @@
   align-items: center;
 }
 .login-box {
-  border: 2px solid #062367;
-  box-shadow: 2px 2px #062367;
+  border: 1px solid grey;
   padding: 20px;
   border-radius: 10px;
   background-color: white;
@@ -106,6 +100,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    margin-top: 50px;
   }
   .banner-box {
     display: flex;
@@ -130,17 +125,14 @@
 }
 
 .bg-dark{
-  background-color: #f2b635 !important;
+  background-color: #3f51b5 !important;
 }
 
 .a-name-link{
-  color: #062367;
-}
-.navbar-brand{
-  color: #062367 !important;
+  color: white;
 }
 .a-name-link:hover{
-  color: white;
+  color: red;
   text-decoration: none;
 }
 
@@ -201,61 +193,4 @@
   margin-bottom: 20px;
   color: red;
   font-size: 13px;
-}
-
-.stat-box{
-  color: #062367;
-  height: 150px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-}
-.stat-1{
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 400px;
-}
-.stat-1 span{
-  
-  font-size: 35px;
-  font-weight: 500;
-  margin-top: 15px;
-  
-}
-.stat-2{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 400px;
-}
-.stat-3{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 400px;
-}
-
-@media screen and (max-width: 500px) {
-  .stat-box{
-
-    flex-direction: column;
-  }
-  .stat-1{
-    padding-bottom: 40px;
-
-  }
-  .stat-2{
-    padding-bottom: 40px;
-    
-  }
-  .faq{
-    margin-top: 40px;
-  }
 }
