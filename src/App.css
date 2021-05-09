@@ -106,7 +106,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    margin-top: 50px;
+    margin-top: 0px;
   }
   .banner-box {
     display: flex;
@@ -114,7 +114,6 @@
     justify-content: center;
     align-items: center;
     padding-left:0px;
-    margin-bottom: 30px;
   }
 
   .banner-box h3 {
