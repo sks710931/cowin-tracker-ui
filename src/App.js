@@ -10,6 +10,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import validator from 'validator';
+import { Statistics } from "./components/statistics";
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -257,6 +258,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Statistics />
       <div className="faq">
         <h2>Frequently asked questions</h2>
         <Accordion defaultActiveKey="0">
