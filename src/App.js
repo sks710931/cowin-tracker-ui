@@ -148,7 +148,6 @@ function App() {
       });
     }
   };
-  const notify = () => toast("Wow so easy!");
   return (
     <div className="App">
       <Navbar fixed="top" bg="dark" variant="dark">
@@ -367,7 +366,6 @@ function App() {
           </Card>
         </Accordion>
       </div>
-      <button onClick={notify}>Notify!</button>
       <ToastContainer />
     </div>
   );
