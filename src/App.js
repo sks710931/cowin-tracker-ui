@@ -7,10 +7,10 @@ import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
-import indiaFlag from "./assets/india-flag.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import validator from 'validator';
+import { Statistics } from "./components/statistics";
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -166,10 +166,9 @@ function App() {
       <div className="loginContainer">
         <div class="banner-box">
           <div className="get-vaccinated">
-            <img src={indiaFlag} alt="" />
-            <h1>Get yourself vaccinated</h1>
+            
           </div>
-          <h3>Receive an email when a vaccination slot opens up</h3>
+          
         </div>
         <div className="register-box">
           <div class="login-box">
@@ -259,6 +258,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Statistics />
       <div className="faq">
         <h2>Frequently asked questions</h2>
         <Accordion defaultActiveKey="0">
