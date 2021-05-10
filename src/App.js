@@ -182,6 +182,7 @@ function App() {
                 placeholder="Your Name"
                 autoComplete="no"
                 onChange={nameChange}
+                disabled
               />
               { (isNameValid===false)? <p className="name-invalid-p">Please enter a valid name.</p> : ''}
             </div>
@@ -194,6 +195,7 @@ function App() {
                 required
                 placeholder="Your Email"
                 onChange={emailChange}
+                disabled
               />
               { (isEmailValid===false)? <p className="name-invalid-p">Please enter a valid email.</p> : ''}
             </div>
@@ -203,6 +205,7 @@ function App() {
                 placeholder="Select State"
                 as="select"
                 value={selectedState}
+                disabled
                 onChange={stateSelectionChange}
               >
                 <option value={0}>State</option>
