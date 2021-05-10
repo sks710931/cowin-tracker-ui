@@ -173,6 +173,7 @@ function App() {
         <div className="register-box">
           <div class="login-box">
             <h3 className="heading">Get Notified</h3>
+            <p style={{color: 'red'}}>Not accepting new subscriptions as <br/> limit imposed by Cowin Portal on data request.</p>
             <div>
               <Form.Control
                 className={`name ${isNameValid === false ? 'name-invalid': ''}`}
